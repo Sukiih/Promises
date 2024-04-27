@@ -1,16 +1,17 @@
-//P1: func asyn con url en var
+//P2: func asyn con url en var
 
 async function moviesApi(){
     //var con url
     const url = "https://jsonplaceholder.typicode.com/photos";
-    //partimos con los intentos:
+
+    //P3:
     try{
         //var solicitada con metodo fetch
         const resultado = await fetch(url);
         //var para convertir formato json
-        const data = await Response.json();
+        const data = await resultado.json(); //correcion nombre
 
-        //metodo each solicitado (1eros 20 titulos)
+        //P4: metodo each solicitado (1eros 20 titulos)
         data.forEach(element => {
             if (element.id <21) {
                 console.log(element.title);
@@ -18,15 +19,13 @@ async function moviesApi(){
         });
         //atrapando el error
     }catch{
-        //imp el 
+        //imp el msj
         console.log(error.message);
     }
-
 }
-
 moviesApi();
 
-//func. retorno de promesa en 3 seg:
+//P5: func. retorno de promesa en 3 seg:
 function retornoMensaje() {
     return new Promise ((resolve, reject) => {
         setTimeout(() => {
@@ -34,3 +33,12 @@ function retornoMensaje() {
         }, 3000);
     });
 }
+
+//P6: func asyn 
+async function mensajePromesa(){
+    //almaceno la promesa:
+        const resultado = await retornoMensaje();
+        console.log(resultado);
+    
+}
+mensajePromesa();
