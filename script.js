@@ -18,7 +18,7 @@ async function moviesApi(){
             }
         });
         //atrapando el error
-    }catch{
+    }catch(error){ //correción, faltaba el parametro
         //imp el msj
         console.log(error.message);
     }
