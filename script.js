@@ -4,9 +4,9 @@ async function moviesApi(){
     //var con url
     const url = "https://jsonplaceholder.typicode.com/photos";
 
-    //P3:
+    //P3:metodo fetch
     try{
-        //var solicitada con metodo fetch
+        //solicitud a la url
         const resultado = await fetch(url);
         //var para convertir formato json
         const data = await resultado.json(); //correcion nombre
@@ -14,7 +14,7 @@ async function moviesApi(){
         //P4: metodo each solicitado (1eros 20 titulos)
         data.forEach(element => {
             if (element.id <21) {
-                console.log(element.title);
+                console.log(`id: ${+element.id}, título: ${element.title}`);
             }
         });
         //atrapando el error
